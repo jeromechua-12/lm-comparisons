@@ -1,4 +1,4 @@
-import copy
+import gc
 import json
 import math
 import platform
@@ -91,8 +91,13 @@ def main():
     results = []
     best = None
     best_state = None
+    model = opt = None
     for n_layers in LAYERS:
         for lr in LRS:
+            del model, opt
+            gc.collect()
+            if dev.type == "cuda":
+                torch.cuda.empty_cache()
             torch.manual_seed(SEED)
             model = Transformer(len(vocab), EMB, HEADS, n_layers, FF, max_len, DROPOUT, vocab.pad_id).to(dev)
             opt = torch.optim.Adam(model.parameters(), lr=lr)
@@ -112,7 +117,7 @@ def main():
                 if val_nll < run_best:
                     run_best = val_nll
                     run_epoch = ep
-                    run_state = copy.deepcopy(model.state_dict())
+                    run_state = {k: v.detach().cpu().clone() for k, v in model.state_dict().items()}
             train_time = time.perf_counter() - start
             res = {
                 "emb_dim": EMB,
