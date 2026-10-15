@@ -17,8 +17,7 @@ from src.transformer.model import Transformer
 from src.vocab import Vocab
 
 LMS = {"lstm": Path("checkpoints/lstm/lstm.pt"), "transformer": Path("checkpoints/transformer/transformer.pt")}
-POOLS = ["mean", "last"]
-REPS = [("lstm", "mean", None), ("lstm", "last", None), ("transformer", "mean", None), ("transformer", "last", None), ("lstm", "mean", 300)]
+REPS = [("lstm", None), ("transformer", None), ("lstm", 300)]
 N_CLASSES = 4
 LR = 1e-3
 EPOCHS = 20
@@ -102,21 +101,18 @@ def main():
         if dev.type == "cuda":
             torch.cuda.synchronize()
         start = time.perf_counter()
-        tr = extract(lm, X_train, vocab)
-        va = extract(lm, X_val, vocab)
+        feats[name] = (extract(lm, X_train, vocab), extract(lm, X_val, vocab))
         if dev.type == "cuda":
             torch.cuda.synchronize()
         extract_times[name] = time.perf_counter() - start
         print(f"extracted {name} features in {extract_times[name]:.2f}s")
-        for pool in POOLS:
-            feats[(name, pool)] = (tr[pool], va[pool])
     unk = unk_rate(X_train, vocab)
 
     results = []
     OUT.mkdir(parents=True, exist_ok=True)
-    for name, pool, dim in REPS:
-        rep = f"{name}_{pool}" if dim is None else f"{name}_{pool}_pca{dim}"
-        tr_f, va_f = feats[(name, pool)]
+    for name, dim in REPS:
+        rep = f"{name}_mean" if dim is None else f"{name}_mean_pca{dim}"
+        tr_f, va_f = feats[name]
         start = time.perf_counter()
         x = tr_f.numpy()
         pca = None
@@ -153,7 +149,6 @@ def main():
         res = {
             "rep": rep,
             "lm": name,
-            "pool": pool,
             "pca_dim": dim,
             "in_dim": x_tr.size(1),
             "lr": LR,

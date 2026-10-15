@@ -34,26 +34,22 @@ def hidden_states(lm: LM, x: Tensor) -> Tensor:
     return h
 
 
-def pool(states: Tensor, lens: Tensor) -> dict[str, Tensor]:
-    """Pool states (batch, seq, hidden) into the mean over real tokens and the last real token state, each (batch, hidden), excluding padding."""
+def mean_pool(states: Tensor, lens: Tensor) -> Tensor:
+    """Average states (batch, seq, hidden) over real tokens into (batch, hidden), excluding padding."""
     pos = torch.arange(states.size(1), device=states.device)
     mask = (pos[None, :] < lens[:, None]).unsqueeze(-1)
-    mean = (states * mask).sum(1) / lens[:, None]
-    last = states[torch.arange(states.size(0), device=states.device), lens - 1]
-    return {"mean": mean, "last": last}
+    return (states * mask).sum(1) / lens[:, None]
 
 
 @torch.no_grad()
-def extract(lm: LM, X: Sequences, vocab: Vocab, batch: int = 256) -> dict[str, Tensor]:
-    """Encode articles with <bos>/<eos>, run the frozen LM and return mean and last pooled features (num_articles, hidden) on CPU."""
+def extract(lm: LM, X: Sequences, vocab: Vocab, batch: int = 256) -> Tensor:
+    """Encode articles with <bos>/<eos>, run the frozen LM and return mean pooled features (num_articles, hidden) on CPU."""
     lm.eval()
     dev = next(lm.parameters()).device
-    feats = {"mean": [], "last": []}
+    feats = []
     for i in range(0, len(X), batch):
         ids = [torch.tensor(vocab.encode(toks, bos=True, eos=True)) for toks in X[i:i + batch]]
         lens = torch.tensor([len(s) for s in ids], device=dev)
         x = pad_sequence(ids, batch_first=True, padding_value=vocab.pad_id).to(dev)
-        pooled = pool(hidden_states(lm, x), lens)
-        for k in feats:
-            feats[k].append(pooled[k].cpu())
-    return {k: torch.cat(v) for k, v in feats.items()}
+        feats.append(mean_pool(hidden_states(lm, x), lens).cpu())
+    return torch.cat(feats)
