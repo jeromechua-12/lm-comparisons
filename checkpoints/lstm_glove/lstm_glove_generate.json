@@ -1,0 +1,40 @@
+{
+  "device": "cuda",
+  "emb": "glove",
+  "hid_dim": 512,
+  "best_epoch": 5,
+  "temp": 0.8,
+  "max_len": 40,
+  "n_samples": 3,
+  "seed": 0,
+  "avg_len": 18.266666666666666,
+  "distinct2": 0.8841698841698842,
+  "unk_rate": 0.032846715328467155,
+  "generations": {
+    "the game was released": [
+      "in 2014 in the united kingdom and final before after a second season , and on 4 may 1989 , and the first move to explore the rio de janeiro bid purchase album in japan .",
+      "as a contest in the series for dota 2 , and a single component of a group of esports , selected for the 2014 summer olympics and paralympics .",
+      "on march 21 , 2014 ."
+    ],
+    "she was born in": [
+      "the conference role of the jackson whitworth memorial in september 2014 .",
+      "a flock of the animals \u2019 s other adults .",
+      "the late to 18th century in his description of a local biography ."
+    ],
+    "the river flows": [
+      "through the creek creek in wyoming , california , passes the colorado river basin , and extends northeast of the watershed is a <unk> divided and the largest tributary of n-88 creek .",
+      ", and the beaches , the platte channel , <unk> ( <unk> m2 ) are a live for the former meteorological station ( <unk> ) is a public center .",
+      "of the watershed is used as one of its tributaries , which is generally as a pest species ."
+    ],
+    "the war began": [
+      "with the purpose of <unk> in cuba in 2006 , and was not immediately from the wedding <unk> to <unk> .",
+      "to weaken the <unk> of electricity and promote the wildlife society .",
+      "a u.s. military force in the pennsylvania territory ."
+    ],
+    "the album received": [
+      "mixed reviews in the album with <unk> .",
+      "the name of almost unknown .",
+      "mixed reviews from critics , \" cater 2 u \" and \" jasper lohan \" , \" in the united kingdom on \" , the first biggest single \" ."
+    ]
+  }
+}

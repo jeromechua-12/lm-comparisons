@@ -1,0 +1,16 @@
+{
+  "device": "cuda",
+  "emb": "glove",
+  "emb_dim": 300,
+  "hid_dim": 512,
+  "dropout": 0.1,
+  "lr": 0.001,
+  "best_epoch": 5,
+  "num_params": 26361134,
+  "trainable_params": 17248934,
+  "test_nll": 4.8387716919689225,
+  "test_ppl": 126.31410377537341,
+  "test_tokens": 239246,
+  "infer_time_s": 1.6754261009918991,
+  "tokens_per_s": 142797.10687231127
+}

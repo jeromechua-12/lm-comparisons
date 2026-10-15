@@ -1,0 +1,39 @@
+{
+  "device": "cuda",
+  "hid_dim": 512,
+  "best_epoch": 4,
+  "temp": 0.8,
+  "max_len": 40,
+  "n_samples": 3,
+  "seed": 0,
+  "avg_len": 16.0,
+  "distinct2": 0.8888888888888888,
+  "unk_rate": 0.0375,
+  "generations": {
+    "the game was released": [
+      "in 1987 , and the episode was not available in much of the contemporary <unk> on the next generation , and the film was not included in rio de janeiro and kicking to 1908 and was a member of the",
+      "in his career for best solo performances award for outstanding song , a group of all time , which reached number one on the chart .",
+      "on march 18 , 2005 ."
+    ],
+    "she was born in": [
+      "the conference in a negotiated \u2013 02 from its base and producing a circular festival lighting by animals .",
+      "other <unk> in <unk> .",
+      "to the central caribbean sea in the east , with the exception of england ."
+    ],
+    "the river flows": [
+      "on june 29 , 1968 .",
+      "at the park zoo , but it was the only serious version of the new york times never served as the newborn term wicca of the chicago cubs .",
+      "with a <unk> bellcote in mumbai before dissipating over the caribbean sea while the <unk> district had been extended to <unk> ny 117 on september 21 ."
+    ],
+    "the war began": [
+      ".",
+      "to take a year later in 2006 , and was not immediately wearing the wedding <unk> to quietus the <unk> i scouting for <unk> in the vicinity .",
+      "to see about 6,000 a year after the battle of pennsylvania , and who had been searched in the open era ."
+    ],
+    "the album received": [
+      "mixed reviews from critics .",
+      "generally mixed-to-positive reviews from critics .",
+      "mixed reviews from critics ."
+    ]
+  }
+}

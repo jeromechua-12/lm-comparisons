@@ -1,0 +1,39 @@
+{
+  "device": "cuda",
+  "hid_dim": 256,
+  "best_epoch": 6,
+  "temp": 0.8,
+  "max_len": 40,
+  "n_samples": 3,
+  "seed": 0,
+  "avg_len": 16.533333333333335,
+  "distinct2": 0.8884120171673819,
+  "unk_rate": 0.056451612903225805,
+  "generations": {
+    "the game was released": [
+      "in six main compositions of the us episodes before the season with a contemporary <unk> on the internet powers , and the first move was widely used only the role of their <unk> .",
+      "in japan as its vice president in canada .",
+      "in april 2002 ."
+    ],
+    "she was born in": [
+      "the 8th century .",
+      "1929 to the two of the canadian expeditionary force , and the animals of the other buildings in the naval air to make a new technology site .",
+      "august 1881 , her father was born in the 1880s ."
+    ],
+    "the river flows": [
+      "on june 29 , the land , 4th , they have been a <unk> , the only serious track and could have a been divided into the situation .",
+      "were simply to be abandoned .",
+      "1.80 \u2013 the east coast of ancona ( <unk> ) , was a <unk> for the former newspaper in the united states , but a double pipe creek was located with the route from one bite of the population of"
+    ],
+    "the war began": [
+      ".",
+      ", a <unk> that was held in greece and rugby union in the area of <unk> .",
+      "to the northwest , the <unk> of the towers were designed to see about 6,000 people of the mythic <unk> ."
+    ],
+    "the album received": [
+      "<unk> reviews in the top ten <unk> .",
+      "the first starfleet starship \" and \" <unk> \" ( us , \" ) .",
+      "critical acclaim in jasper and <unk> , thought that the game are a <unk> , the first of the process ."
+    ]
+  }
+}

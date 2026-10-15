@@ -1,0 +1,39 @@
+{
+  "device": "cuda",
+  "num_layers": 4,
+  "best_epoch": 4,
+  "temp": 0.8,
+  "max_len": 40,
+  "n_samples": 3,
+  "seed": 0,
+  "avg_len": 18.866666666666667,
+  "distinct2": 0.8731343283582089,
+  "unk_rate": 0.0176678445229682,
+  "generations": {
+    "the game was released": [
+      "in the united states on november 26 , 2003 and a second season , with the fourth six based on the fox broadcasting company and a new album of cinderella 's north america .",
+      "in japan as a bundle in the united states to <unk> for a week and a second play that was a second time for the week ending october 15 .",
+      "in the united kingdom on january 12 , 2013 ."
+    ],
+    "she was born in": [
+      "the 8th century , and also became the first female writer to the first colonial wars by james poet barry , jerry cantrell 's married liam to a school in 1938 .",
+      "a local dictator at her <unk> on 1 december 1917 , 1862 .",
+      "the united states on 30 may 1857 ."
+    ],
+    "the river flows": [
+      "through the creek through the land , peaking at number 7 .",
+      "east , the eastern part of the west and south walls .",
+      "to the north west and south west , where it is dissected , the platte river , east , intersects the west ."
+    ],
+    "the war began": [
+      "with the purpose of <unk> and was in the eastern area was not immediately rebuilt .",
+      "to be built at the site , although <unk> and <unk> towers were not used to inhibit a single deity .",
+      "in the late 1990s , who operated the central area command , and was only a major port ."
+    ],
+    "the album received": [
+      "mixed reviews from critics .",
+      "mixed reviews from the pre-rock and almost all viewers .",
+      "positive reviews from critics , including the 50 best rock vocal album and best pop , in collaboration with a biographical share of the album , and was the third and the second single for three weeks ."
+    ]
+  }
+}

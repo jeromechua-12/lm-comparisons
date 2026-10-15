@@ -1,0 +1,40 @@
+{
+  "device": "cuda",
+  "emb": "skipgram",
+  "hid_dim": 512,
+  "best_epoch": 5,
+  "temp": 0.8,
+  "max_len": 40,
+  "n_samples": 3,
+  "seed": 0,
+  "avg_len": 20.0,
+  "distinct2": 0.8771929824561403,
+  "unk_rate": 0.03666666666666667,
+  "generations": {
+    "the game was released": [
+      "in the first phase of the game developer before the game 's failure .",
+      "on the playstation powers , and the wii portable edition was released .",
+      "in october 1995 , 1908 and was a member of the series in canada ."
+    ],
+    "she was born in": [
+      "the conference in a negotiated incident against the two years after the war .",
+      "a similar animals of four other masters in <unk> ( <unk> to <unk> ) , and a girl named shiva ( <unk> her <unk> girl ) in <unk> , which his names is an effective player .",
+      "1872 ."
+    ],
+    "the river flows": [
+      "on the creek creek to land , is a major highway through a <unk> , the only i-96 freeway and could have a been divided highway to the north of the national highway , which has been damaged by the",
+      "above the coast of the <unk> river by wyoming bay <unk> , the former north west parkway and ny 38 on a double run .",
+      "to the right bank and one of its tributaries , which is the watershed of the watershed ."
+    ],
+    "the war began": [
+      "with the purpose of the british and french navies , and was fought in the area as brindisi to quietus surrendered the fighting of the <unk> revolt and the <unk> revolt .",
+      "to take a u.s. allies in the area , where the southern somalia area was assigned to the canadian air force force ( usaaf ) based at the raaf 's service service , which were sold after by british shipping",
+      "its reconstruction in july 1918 , was the first u.s. navy under command in the gallipoli marine ."
+    ],
+    "the album received": [
+      "mixed reviews in some songs .",
+      "positive reviews from critics and its responses .",
+      "mixed reviews ( us , and the record of music and the album 's name organ ) ."
+    ]
+  }
+}

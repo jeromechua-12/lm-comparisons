@@ -1,0 +1,16 @@
+{
+  "device": "cuda",
+  "emb": "skipgram",
+  "emb_dim": 300,
+  "hid_dim": 512,
+  "dropout": 0.1,
+  "lr": 0.001,
+  "best_epoch": 5,
+  "num_params": 26361134,
+  "trainable_params": 17248934,
+  "test_nll": 4.876526279436229,
+  "test_ppl": 131.17420899922342,
+  "test_tokens": 239246,
+  "infer_time_s": 1.6691452899976866,
+  "tokens_per_s": 143334.4367525559
+}

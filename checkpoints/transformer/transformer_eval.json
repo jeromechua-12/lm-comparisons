@@ -1,0 +1,15 @@
+{
+  "device": "cuda",
+  "emb_dim": 300,
+  "num_heads": 6,
+  "num_layers": 4,
+  "ff_dim": 1200,
+  "lr": 0.0005,
+  "best_epoch": 4,
+  "num_params": 22590374,
+  "test_nll": 4.926538899651144,
+  "test_ppl": 137.9013948451296,
+  "test_tokens": 239246,
+  "infer_time_s": 1.4635912649973761,
+  "tokens_per_s": 163465.03680481375
+}

@@ -1,0 +1,17 @@
+{
+  "device": "cpu",
+  "dim": 300,
+  "window": 5,
+  "negative": 10,
+  "sample": 0.0001,
+  "epochs": 10,
+  "workers": 8,
+  "corpus_tokens": 2115293,
+  "vocab_size": 30374,
+  "vectors": 30373,
+  "missing": [
+    "<pad>"
+  ],
+  "train_time_s": 13.570036103992607,
+  "num_params": 18223800
+}

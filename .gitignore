@@ -10,7 +10,9 @@ wheels/
 .venv
 
 # Checkpoints
-checkpoints/
+*.pt
+*.pkl
+*.kv
 
 # Environment
 .env

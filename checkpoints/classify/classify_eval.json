@@ -1,0 +1,274 @@
+{
+  "device": "cuda",
+  "test_articles": 7600,
+  "test_tokens": 333736,
+  "results": [
+    {
+      "rep": "lstm_mean",
+      "lm": "lstm",
+      "pca_dim": null,
+      "in_dim": 512,
+      "best_epoch": 16,
+      "num_params": 2052,
+      "lm_test_ppl": 145.0028535193853,
+      "test_acc": 0.7298684210526316,
+      "test_f1": 0.7288754005107694,
+      "per_class_f1": {
+        "World": 0.7284014485256078,
+        "Sports": 0.8386763185108583,
+        "Business": 0.668827660723933,
+        "Sci/Tech": 0.679596174282678
+      },
+      "confusion": [
+        [
+          1408,
+          144,
+          171,
+          177
+        ],
+        [
+          116,
+          1622,
+          74,
+          88
+        ],
+        [
+          241,
+          101,
+          1238,
+          320
+        ],
+        [
+          201,
+          101,
+          319,
+          1279
+        ]
+      ],
+      "unk_rate_wrong": 0.07951930281952352,
+      "unk_rate_right": 0.07751386626082893,
+      "infer_time_s": 0.2963714939833153,
+      "articles_per_s": 25643.49188194143,
+      "tokens_per_s": 1126073.2114094219
+    },
+    {
+      "rep": "transformer_mean",
+      "lm": "transformer",
+      "pca_dim": null,
+      "in_dim": 300,
+      "best_epoch": 37,
+      "num_params": 1204,
+      "lm_test_ppl": 137.9013948451296,
+      "test_acc": 0.7385526315789473,
+      "test_f1": 0.7378729206078888,
+      "per_class_f1": {
+        "World": 0.7416142557651991,
+        "Sports": 0.8498833290121857,
+        "Business": 0.6601272534464475,
+        "Sci/Tech": 0.699866844207723
+      },
+      "confusion": [
+        [
+          1415,
+          129,
+          219,
+          137
+        ],
+        [
+          104,
+          1639,
+          72,
+          85
+        ],
+        [
+          242,
+          94,
+          1245,
+          319
+        ],
+        [
+          155,
+          95,
+          336,
+          1314
+        ]
+      ],
+      "unk_rate_wrong": 0.0785280352310552,
+      "unk_rate_right": 0.07788835539518853,
+      "infer_time_s": 1.0410327830177266,
+      "articles_per_s": 7300.442525901308,
+      "tokens_per_s": 320581.64300318406
+    },
+    {
+      "rep": "lstm_mean_pca300",
+      "lm": "lstm",
+      "pca_dim": 300,
+      "in_dim": 300,
+      "best_epoch": 37,
+      "num_params": 1204,
+      "lm_test_ppl": 145.0028535193853,
+      "test_acc": 0.7032894736842106,
+      "test_f1": 0.702326343471578,
+      "per_class_f1": {
+        "World": 0.7049308635533524,
+        "Sports": 0.8136645962732919,
+        "Business": 0.6329251700680272,
+        "Sci/Tech": 0.6577847439916406
+      },
+      "confusion": [
+        [
+          1351,
+          150,
+          189,
+          210
+        ],
+        [
+          132,
+          1572,
+          100,
+          96
+        ],
+        [
+          246,
+          128,
+          1163,
+          363
+        ],
+        [
+          204,
+          114,
+          323,
+          1259
+        ]
+      ],
+      "unk_rate_wrong": 0.0788592257277917,
+      "unk_rate_right": 0.07771655581312059,
+      "infer_time_s": 0.307801341987215,
+      "articles_per_s": 24691.25037250708,
+      "tokens_per_s": 1084257.7808314501
+    }
+  ],
+  "agreement": 0.7382894736842105,
+  "errors": {
+    "lstm_wrong_transformer_right": {
+      "count": 843,
+      "examples": [
+        {
+          "text": "fears for t n pension after talks unions representing workers at turner newall say they are disappointed after talks with stricken parent firm federal mogul .",
+          "true": "Business",
+          "lstm": "World",
+          "transformer": "Business",
+          "unk_rate": 0.07692307692307693
+        },
+        {
+          "text": "e mail scam targets police chief wiltshire police warns about phishing after its fraud squad chief was targeted .",
+          "true": "Sci/Tech",
+          "lstm": "Business",
+          "transformer": "Sci/Tech",
+          "unk_rate": 0.10526315789473684
+        },
+        {
+          "text": "super ant colony hits australia a giant 100km colony of ants which has been discovered in melbourne , australia , could threaten local insect species .",
+          "true": "Sci/Tech",
+          "lstm": "World",
+          "transformer": "Sci/Tech",
+          "unk_rate": 0.07692307692307693
+        },
+        {
+          "text": "promoting a shared vision as michael kaleko kept running into people who were getting older and having more vision problems , he realized he could do something about it .",
+          "true": "Sci/Tech",
+          "lstm": "World",
+          "transformer": "Sci/Tech",
+          "unk_rate": 0.03333333333333333
+        },
+        {
+          "text": "griffin to anchor d line the redskins expect huge things from 300 pound cornelius griffin , who was signed to aid the team's weakest unit the defensive line .",
+          "true": "Sports",
+          "lstm": "Sci/Tech",
+          "transformer": "Sports",
+          "unk_rate": 0.06896551724137931
+        }
+      ]
+    },
+    "transformer_wrong_lstm_right": {
+      "count": 777,
+      "examples": [
+        {
+          "text": "the race is on : second private team sets launch date for human spaceflight space . com toronto , canada a second team of rocketeers competing for the 36 ; 10 million ansari x prize , a contest for privately funded suborbital space flight , has officially announced the first launch date for its manned rocket .",
+          "true": "Sci/Tech",
+          "lstm": "Sci/Tech",
+          "transformer": "Sports",
+          "unk_rate": 0.07017543859649122
+        },
+        {
+          "text": "socialites unite dolphin groups dolphin groups , or pods , rely on socialites to keep them from collapsing , scientists claim .",
+          "true": "Sci/Tech",
+          "lstm": "Sci/Tech",
+          "transformer": "World",
+          "unk_rate": 0.13636363636363635
+        },
+        {
+          "text": "teenage t . rex's monster growth tyrannosaurus rex achieved its massive size due to an enormous growth spurt during its adolescent years .",
+          "true": "Sci/Tech",
+          "lstm": "Sci/Tech",
+          "transformer": "Business",
+          "unk_rate": 0.13043478260869565
+        },
+        {
+          "text": "mars rovers relay images through mars express european space agency esas mars express has relayed pictures from one of nasa's mars rovers for the first time , as part of a set of interplanetary networking demonstrations . the demonstrations pave the way for future mars missions to draw on joint interplanetary networking capabilities . . .",
+          "true": "Sci/Tech",
+          "lstm": "Sci/Tech",
+          "transformer": "Business",
+          "unk_rate": 0.07142857142857142
+        },
+        {
+          "text": "tougher rules won't soften law's game foxborough looking at his ridiculously developed upper body , with huge biceps and hardly an ounce of fat , it's easy to see why ty law , arguably the best cornerback in football , chooses physical play over finesse . that's not to imply that he's lacking a finesse component , because he can shut down his side of the field much as deion sanders . . .",
+          "true": "Sports",
+          "lstm": "Sports",
+          "transformer": "Sci/Tech",
+          "unk_rate": 0.1891891891891892
+        }
+      ]
+    },
+    "both_wrong": {
+      "count": 1210,
+      "examples": [
+        {
+          "text": "prediction unit helps forecast wildfires ap it's barely dawn when mike fitzpatrick starts his shift with a blur of colorful maps , figures and endless charts , but already he knows what the day will bring . lightning will strike in places he expects . winds will pick up , moist places will dry and flames will roar .",
+          "true": "Sci/Tech",
+          "lstm": "World",
+          "transformer": "World",
+          "unk_rate": 0.03389830508474576
+        },
+        {
+          "text": "calif . aims to limit farm related smog ap southern california's smog fighting agency went after emissions of the bovine variety friday , adopting the nation's first rules to reduce air pollution from dairy cow manure .",
+          "true": "Sci/Tech",
+          "lstm": "Business",
+          "transformer": "Business",
+          "unk_rate": 0.1891891891891892
+        },
+        {
+          "text": "loosing the war on terrorism sven jaschan , self confessed author of the netsky and sasser viruses , is responsible for 70 percent of virus infections in 2004 , according to a six month virus roundup published wednesday by antivirus company sophos . the 18 year old jaschan was taken into custody in germany in may by police who said he had admitted programming both the netsky and sasser worms , something experts at microsoft confirmed . during the five months preceding jaschan's capture , there were at least 25 variants of netsky and one of the port scanning network worm sasser . graham cluley , senior technology consultant at sophos , said it was staggeri . . .",
+          "true": "Sci/Tech",
+          "lstm": "World",
+          "transformer": "World",
+          "unk_rate": 0.14285714285714285
+        },
+        {
+          "text": "card fraud unit nets 36 , 000 cards in its first two years , the uk's dedicated card fraud unit , has recovered 36 , 000 stolen cards and 171 arrests and estimates it saved 65m .",
+          "true": "Sci/Tech",
+          "lstm": "Sports",
+          "transformer": "Business",
+          "unk_rate": 0.10810810810810811
+        },
+        {
+          "text": "dutch retailer beats apple to local download market amsterdam free record shop , a dutch music retail chain , beat apple computer inc . to market on tuesday with the launch of a new download service in europe's latest battleground for digital song services .",
+          "true": "Sci/Tech",
+          "lstm": "Business",
+          "transformer": "Business",
+          "unk_rate": 0.06666666666666667
+        }
+      ]
+    }
+  }
+}

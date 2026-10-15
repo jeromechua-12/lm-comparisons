@@ -1,0 +1,38 @@
+{
+  "max_order": 2,
+  "add_k": 0.001,
+  "temp": 0.8,
+  "max_len": 40,
+  "n_samples": 3,
+  "seed": 0,
+  "avg_len": 18.4,
+  "distinct2": 0.8620689655172413,
+  "unk_rate": 0.06159420289855073,
+  "generations": {
+    "the game was released": [
+      "in major units , though , innis 's first class was held in north america .",
+      "as \" was terry mcdermott goal attempt to look back to the president of the franciscan missionaries had a tropical depressions co-director <unk> .",
+      "on <unk> ."
+    ],
+    "she was born in": [
+      "the fountain , and <unk> \" is an <unk> of the guardian put this storm warning center of archaeology .",
+      "the group in the lyrics and <unk> <unk> , including \" <unk> , estimated to honour and the third session in the drama series and moved into the mead vickers machine , respectively .",
+      "a pistol became a medicine sixteenth-century denys replied , the royal canadian yukon in january 1 \u2013 0 , and was not <unk> ."
+    ],
+    "the river flows": [
+      "at the face by 14 , and <unk> ( 60 million in the creation of <unk> in the intersection of the <unk> in the large number of the story that u2 360 .",
+      "into the spring of the second landfall , which may 24 , and a total of the rapid speed production of the recording a <unk> blow up in the board for the <unk> <unk> of the same pair of all",
+      "torpedo tube ."
+    ],
+    "the war began": [
+      "to the deck acted as functions and she had a film , the world records .",
+      "operations battalion , at <unk> and villages and 50 percent the english , hawai\u02bbi in the complex , the king 's works are elected to the british recording tape songs on the <unk> says algernon moncrieff , his first announced",
+      "a really ."
+    ],
+    "the album received": [
+      "at the final episode of the <unk> .",
+      "nc state of human civilization .",
+      "negative reviews from the rear ."
+    ]
+  }
+}
