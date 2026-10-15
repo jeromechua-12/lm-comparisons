@@ -5,18 +5,21 @@ type State = tuple[Tensor, Tensor]
 
 
 class LSTM(nn.Module):
-    """Single-layer LSTM language model with trainable input embeddings."""
+    """Single-layer LSTM language model with trainable input embeddings and dropout."""
 
-    def __init__(self, vocab_size: int, emb_dim: int, hid_dim: int, pad_id: int):
+    def __init__(self, vocab_size: int, emb_dim: int, hid_dim: int, dropout: float, pad_id: int):
         super().__init__()
         self.emb = nn.Embedding(vocab_size, emb_dim, padding_idx=pad_id)
         self.lstm = nn.LSTM(emb_dim, hid_dim, num_layers=1, batch_first=True)
+        self.dropout = nn.Dropout(dropout)
         self.out = nn.Linear(hid_dim, vocab_size)
 
     def forward(self, x: Tensor, state: State | None = None) -> tuple[Tensor, State]:
         """Return next-token logits (B, T, V) and the final (hidden, cell) state."""
         emb = self.emb(x)
+        emb = self.dropout(emb)
         states, state = self.lstm(emb, state)
+        states = self.dropout(states)
         logits = self.out(states)
         return logits, state
 
