@@ -5,11 +5,14 @@ type State = tuple[Tensor, Tensor]
 
 
 class LSTM(nn.Module):
-    """Single-layer LSTM language model with trainable input embeddings and dropout."""
+    """Single-layer LSTM language model with trainable or fixed pretrained input embeddings and dropout."""
 
-    def __init__(self, vocab_size: int, emb_dim: int, hid_dim: int, dropout: float, pad_id: int):
+    def __init__(self, vocab_size: int, emb_dim: int, hid_dim: int, dropout: float, pad_id: int, weights: Tensor | None = None):
         super().__init__()
-        self.emb = nn.Embedding(vocab_size, emb_dim, padding_idx=pad_id)
+        if weights is None:
+            self.emb = nn.Embedding(vocab_size, emb_dim, padding_idx=pad_id)
+        else:
+            self.emb = nn.Embedding.from_pretrained(weights, freeze=True, padding_idx=pad_id)
         self.lstm = nn.LSTM(emb_dim, hid_dim, num_layers=1, batch_first=True)
         self.dropout = nn.Dropout(dropout)
         self.out = nn.Linear(hid_dim, vocab_size)
