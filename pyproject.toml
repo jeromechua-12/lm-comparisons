@@ -9,5 +9,6 @@ dependencies = [
     "gensim>=4.4.0",
     "numpy>=2.5.4",
     "python-dotenv>=1.2.4",
+    "scikit-learn>=1.9.1",
     "torch>=2.14.1",
 ]
