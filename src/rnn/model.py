@@ -3,18 +3,21 @@ from torch import Tensor, nn
 
 
 class RNN(nn.Module):
-    """Single-layer tanh Elman RNN language model with trainable input embeddings."""
+    """Single-layer tanh RNN language model with trainable input embeddings and dropout."""
 
-    def __init__(self, vocab_size: int, emb_dim: int, hid_dim: int, pad_id: int):
+    def __init__(self, vocab_size: int, emb_dim: int, hid_dim: int, dropout: float, pad_id: int):
         super().__init__()
         self.emb = nn.Embedding(vocab_size, emb_dim, padding_idx=pad_id)
         self.rnn = nn.RNN(emb_dim, hid_dim, num_layers=1, nonlinearity="tanh", batch_first=True)
+        self.dropout = nn.Dropout(dropout)
         self.out = nn.Linear(hid_dim, vocab_size)
 
     def forward(self, x: Tensor, h: Tensor | None = None) -> tuple[Tensor, Tensor]:
         """Return next-token logits (B, T, V) and the final hidden state."""
         emb = self.emb(x)
+        emb = self.dropout(emb)
         states, h = self.rnn(emb, h)
+        states = self.dropout(states)
         logits = self.out(states)
         return logits, h
 

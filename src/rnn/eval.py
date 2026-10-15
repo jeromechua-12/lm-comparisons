@@ -17,7 +17,7 @@ def main():
     dev = get_device()
     ckpt = torch.load(OUT / "rnn.pt", map_location=dev, weights_only=False)
     vocab = ckpt["vocab"]
-    model = RNN(len(vocab), ckpt["emb_dim"], ckpt["hid_dim"], vocab.pad_id).to(dev)
+    model = RNN(len(vocab), ckpt["emb_dim"], ckpt["hid_dim"], ckpt["dropout"], vocab.pad_id).to(dev)
     model.load_state_dict(ckpt["state"])
 
     data = load_data()
@@ -35,6 +35,7 @@ def main():
         "device": str(dev),
         "emb_dim": ckpt["emb_dim"],
         "hid_dim": ckpt["hid_dim"],
+        "dropout": ckpt["dropout"],
         "lr": ckpt["lr"],
         "best_epoch": ckpt["best_epoch"],
         "num_params": ckpt["num_params"],

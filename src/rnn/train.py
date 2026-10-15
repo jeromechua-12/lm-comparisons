@@ -15,6 +15,7 @@ from src.rnn.model import RNN
 from src.vocab import Vocab, WikiDataset, collate
 
 EMB = 300
+DROPOUT = 0.1
 HIDS = [256, 512]
 LRS = [1e-3, 3e-3]
 EPOCHS = 15
@@ -90,7 +91,7 @@ def main():
     for hid in HIDS:
         for lr in LRS:
             torch.manual_seed(SEED)
-            model = RNN(len(vocab), EMB, hid, vocab.pad_id).to(dev)
+            model = RNN(len(vocab), EMB, hid, DROPOUT, vocab.pad_id).to(dev)
             opt = torch.optim.Adam(model.parameters(), lr=lr)
             print(f"hid={hid} lr={lr}")
             tr_losses = []
@@ -113,6 +114,7 @@ def main():
             res = {
                 "emb_dim": EMB,
                 "hid_dim": hid,
+                "dropout": DROPOUT,
                 "lr": lr,
                 "best_epoch": run_epoch,
                 "val_nll": run_best,
