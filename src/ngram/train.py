@@ -34,18 +34,16 @@ def num_params(model: NGram) -> int:
 
 
 def main():
-    """Fit an n-gram model per order and add-k, report validation results and save the best per order."""
+    """Fit an n-gram model per order and add-k, report validation results and save the overall best."""
     data = load_data()
     vocab = Vocab(data["train"])
     train = [vocab.encode(seq) for seq in data["train"]]
     valid = [vocab.encode(seq) for seq in data["validation"]]
-    OUT.mkdir(parents=True, exist_ok=True)
 
     results = []
-    bests = {}
+    best = None
+    best_model = None
     for order in ORDERS:
-        best = None
-        best_model = None
         for k in KS:
             model = NGram(order, len(vocab), vocab.pad_id, vocab.bos_id, vocab.eos_id)
             start = time.perf_counter()
@@ -64,22 +62,21 @@ def main():
             if best is None or nll < best["val_nll"]:
                 best = res
                 best_model = model
-        bests[order] = best
-        ckpt_path = OUT / f"ngram_{order}.pkl"
-        with open(ckpt_path, "wb") as f:
-            pickle.dump({"model": best_model, "vocab": vocab, **best}, f)
 
     print(f"NGram vocab={len(vocab)}")
     print(f"{'order':>5} {'add_k':>6} {'val_nll':>8} {'val_ppl':>9} {'train_s':>8} {'params':>11}")
     for r in results:
         print(f"{r['max_order']:>5} {r['add_k']:>6} {r['val_nll']:>8.4f} {r['val_ppl']:>9.2f} {r['train_time_s']:>8.2f} {r['num_params']:>11,}")
-    for order, best in bests.items():
-        print(f"best order={order} add_k={best['add_k']} val_ppl={best['val_ppl']:.2f}")
+    print(f"best order={best['max_order']} add_k={best['add_k']} val_ppl={best['val_ppl']:.2f}")
 
+    OUT.mkdir(parents=True, exist_ok=True)
     res_path = OUT / "ngram_results.json"
     with open(res_path, "w") as f:
-        json.dump({"results": results, "best": bests}, f, indent=2)
-    print(f"saved {res_path} and checkpoints for orders {ORDERS}")
+        json.dump({"results": results, "best": best}, f, indent=2)
+    ckpt_path = OUT / "ngram.pkl"
+    with open(ckpt_path, "wb") as f:
+        pickle.dump({"model": best_model, "vocab": vocab, **best}, f)
+    print(f"saved {res_path} and {ckpt_path}")
 
 
 if __name__ == "__main__":
